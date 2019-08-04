@@ -4,8 +4,6 @@ EXPOSE 80
 
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/localtime
-RUN mkdir -p /opt/tsf/app_config/
-
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
