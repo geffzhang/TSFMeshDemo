@@ -35,7 +35,7 @@ namespace Shop
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient("promotionclient", x => {
-                x.BaseAddress = new Uri("http://promotion:8091");
+                x.BaseAddress = new Uri("http://promotion");
                 x.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
                 //x.DefaultRequestHeaders.Add("Content-type", "application/x-www-form-urlencoded");
             })

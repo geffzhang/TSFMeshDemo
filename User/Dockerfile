@@ -21,4 +21,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 
-ENTRYPOINT ["bash", "/app/start.sh"]
+ENTRYPOINT ["dotnet", "User.dll"]
