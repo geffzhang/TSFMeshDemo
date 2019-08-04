@@ -13,6 +13,7 @@ RUN dotnet build "Promotion.csproj" -c Release -o /app
 
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/localtime
+RUN mkdir -p /opt/tsf/app_config/
 RUN /bin/cp -r /src/Promotion/spec.yaml /opt/tsf/app_config/
 RUN /bin/cp -r /src/Promotion/apis /opt/tsf/app_config/
 

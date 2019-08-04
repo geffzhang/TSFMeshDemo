@@ -14,6 +14,7 @@ RUN dotnet build "Shop.csproj" -c Release -o /app
 
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/localtime
+RUN mkdir -p /opt/tsf/app_config/
 RUN /bin/cp -r /src/Shop/spec.yaml /opt/tsf/app_config/
 RUN /bin/cp -r /src/Shop/apis /opt/tsf/app_config/
 

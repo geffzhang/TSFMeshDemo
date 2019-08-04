@@ -17,4 +17,13 @@
     <ProjectReference Include="..\TSFCore\TSFCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="apis\promotion.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="spec.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

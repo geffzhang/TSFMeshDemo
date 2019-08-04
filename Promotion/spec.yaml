@@ -4,7 +4,7 @@ spec:
   services:
     - name: promotion
       ports:
-        - targetPort: 8091
+        - targetPort: 80
           protocol: http
       healthCheck:
         path: /health
