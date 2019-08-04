@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Application
+spec:
+  services:
+    - name: shop
+      ports:
+        - targetPort: 8090
+          protocol: http
+      healthCheck:
+        path: /health
+

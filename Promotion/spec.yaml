@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Application
+spec:
+  services:
+    - name: promotion
+      ports:
+        - targetPort: 8091
+          protocol: http
+      healthCheck:
+        path: /health
+

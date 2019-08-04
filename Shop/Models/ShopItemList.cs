@@ -7,6 +7,10 @@ namespace Shop.Models
 {
     public class ShopItemList
     {
+        public  ShopItemList()
+        {
+            Items = new List<ShopItem>();
+        }
         public List<ShopItem> Items { get; set; }
     }
 }

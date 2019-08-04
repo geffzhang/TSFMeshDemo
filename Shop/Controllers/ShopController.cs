@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Models;
+using TSF.Tracing.Propagation;
 
 namespace Shop.Controllers
 {
@@ -12,18 +13,17 @@ namespace Shop.Controllers
     [ApiController]
     public class ShopController : ControllerBase
     {
-        private IHttpClientFactory _clientFactory;
+        private HttpClient httpClient;
 
         public ShopController(IHttpClientFactory clientFactory)
         {
-            _clientFactory = clientFactory;
+            httpClient = clientFactory.CreateClient("promotionclient"); 
         }
 
         // GET api/v6/shop/order
         [HttpGet("order")]
         public async Task<ActionResult<OrderItem>> Order()
         {
-            HttpClient httpClient = _clientFactory.CreateClient("promotionclient");
             var response = await httpClient.GetAsync("/api/v6/promotion/query");
             if (response.IsSuccessStatusCode)
             {
@@ -31,7 +31,7 @@ namespace Shop.Controllers
             }
             else
             {
-                throw new Exception("Error invoke /api/v6/promotion/query");
+                throw new UnprocessableEntityException("Error invoke /api/v6/promotion/query", 4000000);
             }
         }
 

@@ -37,7 +37,7 @@ namespace Shop
             services.AddHttpClient("promotionclient", x => {
                 x.BaseAddress = new Uri("http://localhost:53330");
                 x.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
-                x.DefaultRequestHeaders.Add("Content-type", "application/x-www-form-urlencoded");
+                //x.DefaultRequestHeaders.Add("Content-type", "application/x-www-form-urlencoded");
             })
                 .AddHttpMessageHandler((provider) =>
                 {
@@ -60,7 +60,7 @@ namespace Shop
             {
                 Predicate = r => r.Name.Contains("health")
             });
-
+            app.UseExceptionMiddleware();
             app.UseMvc();
         }
     }
