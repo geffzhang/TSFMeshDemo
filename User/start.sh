@@ -5,4 +5,4 @@ cp /app/spec.yaml /opt/tsf/app_config/
 cp -r /app/apis /opt/tsf/app_config/
 cd /app/
 
-dotnet User.dll 
+dotnet /app/User.dll
