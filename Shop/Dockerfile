@@ -24,4 +24,5 @@ RUN dotnet publish "Shop.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Shop.dll"]
+#ENTRYPOINT ["dotnet", "Shop.dll"]
+CMD [ "/app/start.sh" ]
