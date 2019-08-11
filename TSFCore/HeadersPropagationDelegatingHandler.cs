@@ -51,8 +51,6 @@ namespace TSF.Tracing.Propagation
                 AddHeaderIfNotNull(request, EnvoyHeaders.B3_SAMPLED, envoyHeaders.B3Sampled);
                 AddHeaderIfNotNull(request, EnvoyHeaders.B3_FLAGS, envoyHeaders.B3Flags);
                 AddHeaderIfNotNull(request, EnvoyHeaders.OT_SPAN_CONTEXT, envoyHeaders.OtSpanContext);
-                //AddHeaderIfNotNull(request, EnvoyHeaders.Trace_Service, envoyHeaders.TraceService);
-                //AddHeaderIfNotNull(request, EnvoyHeaders.Client_Trace_ID, envoyHeaders.ClientTraceId);
             }
 
             return base.SendAsync(request, cancellationToken);

@@ -38,8 +38,7 @@ namespace TSF.Tracing.Propagation
             envoyHeaders.B3Sampled = GetHeader(context, EnvoyHeaders.B3_SAMPLED);
             envoyHeaders.B3Flags = GetHeader(context, EnvoyHeaders.B3_FLAGS);
             envoyHeaders.OtSpanContext = GetHeader(context, EnvoyHeaders.OT_SPAN_CONTEXT);
-            envoyHeaders.TraceService = GetHeader(context, EnvoyHeaders.Trace_Service);
-            envoyHeaders.ClientTraceId = GetHeader(context, EnvoyHeaders.Client_Trace_ID);
+
             return next(context);
         }
 
