@@ -30,18 +30,15 @@ namespace Shop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var shopHandler = new TraceServiceHttpMessageHandler() { Header = "shop" };
-            services.AddSingleton(shopHandler);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient("promotionclient", x => {
                 x.BaseAddress = new Uri("http://promotion");
                 x.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
-                //x.DefaultRequestHeaders.Add("Content-type", "application/x-www-form-urlencoded");
             })
                 .AddHttpMessageHandler((provider) =>
                 {
-                    return provider.GetRequiredService<TraceServiceHttpMessageHandler>();
+                    return new TraceServiceHttpMessageHandler() { Header = "shop" };
                 });
 
             services.AddHealthChecks()
